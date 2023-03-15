@@ -1,11 +1,11 @@
 // See JSON RPC specification
 // https://www.jsonrpc.org/specification
 
-type RpcParameterByPosition = string[];
-type RpcParameterByName = Record<string, string>;
+export type RpcParameterByPosition = string[];
+export type RpcParameterByName = Record<string, string>;
 
-type RpcParameter = RpcParameterByPosition | RpcParameterByName;
-interface RpcBaseProps {
+export type RpcParameter = RpcParameterByPosition | RpcParameterByName;
+export interface RpcBaseProps {
   jsonrpc: '2.0';
   id: string;
 }
@@ -44,4 +44,5 @@ export enum RpcErrorCode {
   SERVER_ERROR = -32000,
   // Client defined errors
   USER_REJECTION = 4001,
+  METHOD_NOT_SUPPORTED = 4002,
 }

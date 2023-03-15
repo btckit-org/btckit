@@ -1,6 +1,6 @@
 {
   "name": "@btckit/types",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "",
   "scripts": {
     "build": "tsup src/index.ts && npm run types",
@@ -19,5 +19,6 @@
   "unpkg": "dist/index.global.js",
   "devDependencies": {
     "rimraf": "^4.4.0"
-  }
+  },
+  "gitHead": "8c874f6941110f6bae49c0ce80ad836b17a12000"
 }

@@ -1,6 +1,6 @@
 {
   "name": "@btckit/types",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "",
   "scripts": {
     "build": "tsup src/index.ts && npm run types",
@@ -20,5 +20,8 @@
   "devDependencies": {
     "rimraf": "^4.4.0"
   },
-  "gitHead": "8c874f6941110f6bae49c0ce80ad836b17a12000"
+  "publishConfig": {
+    "access": "public"
+  },
+  "gitHead": "37b1ffe2c0455fbd97e1c09d21ca58d8f9c6c68e"
 }

@@ -1,0 +1,23 @@
+{
+  "name": "@btckit/types",
+  "version": "0.1.0",
+  "description": "",
+  "scripts": {
+    "build": "tsup src/index.ts && npm run types",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "types": "tsc --declaration --emitDeclarationOnly"
+  },
+  "author": "btckit-org",
+  "license": "ISC",
+  "files": [
+    "dist"
+  ],
+  "typings": "dist/types/index.d.ts",
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
+  "umd:main": "dist/index.global.js",
+  "unpkg": "dist/index.global.js",
+  "devDependencies": {
+    "rimraf": "^4.4.0"
+  }
+}

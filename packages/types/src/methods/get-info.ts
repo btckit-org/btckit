@@ -1,3 +1,12 @@
-import { RpcRequest } from 'src/rpc';
+import { DefineRpcMethod, RpcRequest, RpcResponse } from '../rpc';
 
-export type GetInfo = RpcRequest<'getInfo', {}>;
+interface GetInfoResponseBody {
+  version: string;
+  supportedMethods?: string[];
+}
+
+export type GetInfoRequest = RpcRequest<'getInfo'>;
+
+export type GetInfoResponse = RpcResponse<GetInfoResponseBody>;
+
+export type DefineGetInfoMethod = DefineRpcMethod<GetInfoRequest, GetInfoResponse>;

@@ -21,7 +21,7 @@ export interface RpcError<TErrorData = RpcParameter> {
   data?: TErrorData;
 }
 
-export interface RpcSuccessResponse<TResult extends Record<string, unknown>> extends RpcBaseProps {
+export interface RpcSuccessResponse<TResult extends object> extends RpcBaseProps {
   result: TResult;
 }
 
@@ -29,10 +29,9 @@ export interface RpcErrorResponse<TError extends RpcError = RpcError> extends Rp
   error: TError;
 }
 
-export type RpcResponse<
-  TResult extends Record<string, unknown>,
-  TError extends RpcError = RpcError
-> = RpcSuccessResponse<TResult> | RpcErrorResponse<TError>;
+export type RpcResponse<TResult extends object, TError extends RpcError = RpcError> =
+  | RpcSuccessResponse<TResult>
+  | RpcErrorResponse<TError>;
 
 export enum RpcErrorCode {
   // Spec defined server errors
@@ -46,3 +45,14 @@ export enum RpcErrorCode {
   USER_REJECTION = 4001,
   METHOD_NOT_SUPPORTED = 4002,
 }
+
+export type DefineRpcMethod<
+  TRequest extends RpcRequest<string, unknown>,
+  TResponse extends RpcResponse<object>
+> = Record<
+  TRequest['method'],
+  {
+    request: TRequest;
+    response: TResponse;
+  }
+>;

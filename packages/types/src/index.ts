@@ -1,47 +1,38 @@
-// See JSON RPC specification
-// https://www.jsonrpc.org/specification
+import { ValueOf } from './utils';
 
-type RpcParameterByPosition = string[];
-type RpcParameterByName = Record<string, string>;
+import { DefineGetInfoMethod, GetInfoRequest, GetInfoResponse } from './methods/get-info';
+import { DefineSignPsbtMethod, SignPsbtRequest } from './methods/sign-psbt';
+import {
+  DefineRequestAccountsMethod,
+  RequestAccountsRequest,
+  RequestAccountsResponse,
+} from './methods/request-accounts';
 
-type RpcParameter = RpcParameterByPosition | RpcParameterByName;
-interface RpcBaseProps {
-  jsonrpc: '2.0';
-  id: string;
-}
+export {
+  GetInfoRequest,
+  GetInfoResponse,
+  SignPsbtRequest,
+  RequestAccountsRequest,
+  RequestAccountsResponse,
+};
 
-export interface RpcRequest<TMethod, TParam = RpcParameter> extends RpcBaseProps {
-  method: TMethod;
-  params?: TParam;
-}
+export type BtcKitMethodMap = DefineGetInfoMethod &
+  DefineRequestAccountsMethod &
+  DefineSignPsbtMethod;
 
-export interface RpcError<TErrorData = RpcParameter> {
-  code: number | RpcErrorCode;
-  message: string;
-  data?: TErrorData;
-}
+export type BtcKitRequests = ValueOf<BtcKitMethodMap>['request'];
 
-export interface RpcSuccessResponse<TResult extends Record<string, unknown>> extends RpcBaseProps {
-  result: TResult;
-}
+export type BtcKitResponses = ValueOf<BtcKitMethodMap>['response'];
 
-export interface RpcErrorResponse<TError extends RpcError = RpcError> extends RpcBaseProps {
-  error: TError;
-}
+export type BtcKitMethodNames = keyof BtcKitMethodMap;
 
-export type RpcResponse<
-  TResult extends Record<string, unknown>,
-  TError extends RpcError = RpcError
-> = RpcSuccessResponse<TResult> | RpcErrorResponse<TError>;
-
-export enum RpcErrorCode {
-  // Spec defined server errors
-  PARSE_ERROR = -32700,
-  INVALID_REQUEST = -32600,
-  METHOD_NOT_FOUND = -32601,
-  INVALID_PARAMS = -32602,
-  INTERNAL_ERROR = -32603,
-  SERVER_ERROR = -32000,
-  // Client defined errors
-  USER_REJECTION = 4001,
+declare global {
+  interface Window {
+    btc?: {
+      request<T extends BtcKitMethodNames>(
+        method: T,
+        params?: Record<string, any>
+      ): Promise<BtcKitMethodMap[T]['response']>;
+    };
+  }
 }

@@ -6,7 +6,7 @@
   ],
   "scripts": {
     "build": "lerna run build",
-    "prepare": "husky install"
+    "postinstall": "husky install"
   },
   "devDependencies": {
     "@commitlint/cli": "^17.4.4",

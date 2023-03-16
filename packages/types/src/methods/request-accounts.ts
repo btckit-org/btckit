@@ -5,7 +5,6 @@ export type PaymentTypes = 'p2wpkh' | 'p2wpkh-p2sh' | 'p2tr';
 export interface BtcAddress {
   type: PaymentTypes;
   address: string;
-  derivationPath: string;
 }
 
 export interface AddressResponseBody {

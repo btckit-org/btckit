@@ -1,6 +1,8 @@
 // See JSON RPC specification
 // https://www.jsonrpc.org/specification
 
+export enum InlcudeInBuild {}
+
 export type RpcParameterByPosition = string[];
 export type RpcParameterByName = Record<string, string>;
 

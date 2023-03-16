@@ -1,18 +1,17 @@
-import { defineConfig } from "tsup";
+import { defineConfig } from 'tsup';
 
 export default defineConfig({
-  format: ["cjs", "esm", "iife"],
-  outDir: "dist",
+  format: ['cjs', 'esm'],
+  outDir: 'dist',
 
-  clean: true,
+  // clean: true,
   sourcemap: true,
-  splitting: true,
-  treeshake: true,
-
-  minify: true,
-  minifyIdentifiers: true,
-  minifySyntax: true,
-  minifyWhitespace: true,
+  // splitting: true,
+  // treeshake: true,
+  // minify: true,
+  // minifyIdentifiers: true,
+  // minifySyntax: true,
+  // minifyWhitespace: true,
 
   metafile: !!process.env.ANALYZE,
 });

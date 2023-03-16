@@ -1,5 +1,8 @@
+// comment
+
 import { ValueOf } from './utils';
 
+import './rpc';
 import { DefineGetInfoMethod, GetInfoRequest, GetInfoResponse } from './methods/get-info';
 import { DefineSignPsbtMethod, SignPsbtRequest } from './methods/sign-psbt';
 import {
@@ -8,13 +11,7 @@ import {
   RequestAccountsResponse,
 } from './methods/request-accounts';
 
-export {
-  GetInfoRequest,
-  GetInfoResponse,
-  SignPsbtRequest,
-  RequestAccountsRequest,
-  RequestAccountsResponse,
-};
+export * from './rpc';
 
 export type BtcKitMethodMap = DefineGetInfoMethod &
   DefineRequestAccountsMethod &
@@ -26,13 +23,23 @@ export type BtcKitResponses = ValueOf<BtcKitMethodMap>['response'];
 
 export type BtcKitMethodNames = keyof BtcKitMethodMap;
 
+type BtcKitRequest = {
+  <T extends BtcKitMethodNames>(arg: T): Promise<BtcKitMethodMap[T]['response']>;
+};
+
 declare global {
   interface Window {
     btc?: {
-      request<T extends BtcKitMethodNames>(
-        method: T,
-        params?: Record<string, any>
-      ): Promise<BtcKitMethodMap[T]['response']>;
+      request: BtcKitRequest;
+      listen(event: string): Promise<any>;
     };
   }
 }
+
+export {
+  GetInfoRequest,
+  GetInfoResponse,
+  SignPsbtRequest,
+  RequestAccountsRequest,
+  RequestAccountsResponse,
+};

@@ -46,6 +46,10 @@ export enum RpcErrorCode {
   METHOD_NOT_SUPPORTED = 4002,
 }
 
+export type ExtractSuccessResponse<T> = Extract<T, RpcSuccessResponse<any>>;
+
+export type ExtractErrorResponse<T> = Extract<T, RpcErrorResponse<any>>;
+
 export type DefineRpcMethod<
   TRequest extends RpcRequest<string, unknown>,
   TResponse extends RpcResponse<object>

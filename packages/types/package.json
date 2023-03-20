@@ -5,7 +5,8 @@
   "scripts": {
     "build": "tsup src/index.ts && npm run types",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "types": "tsc --declaration --emitDeclarationOnly"
+    "types": "tsc --declaration --emitDeclarationOnly",
+    "prepublish": "yarn build"
   },
   "author": "btckit-org",
   "license": "ISC",

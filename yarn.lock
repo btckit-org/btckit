@@ -25,7 +25,7 @@
 
 "@btckit/types@file:/Users/kyranjamie/dev/oss/btckit/packages/types":
   "resolved" "file:packages/types"
-  "version" "0.0.9"
+  "version" "0.0.10"
 
 "@commitlint/cli@^17.4.4":
   "integrity" "sha512-HwKlD7CPVMVGTAeFZylVNy14Vm5POVY0WxPkZr7EXLC/os0LH/obs6z4HRvJtH/nHCMYBvUBQhGwnufKfTjd5g=="

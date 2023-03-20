@@ -15,11 +15,8 @@ export interface Params {
   types: PaymentTypes[];
 }
 
-export type RequestAccountsRequest = RpcRequest<'requestAccounts'>;
+export type GetAddressesRequest = RpcRequest<'getAddresses'>;
 
-export type RequestAccountsResponse = RpcResponse<AddressResponseBody>;
+export type GetAddressesResponse = RpcResponse<AddressResponseBody>;
 
-export type DefineRequestAccountsMethod = DefineRpcMethod<
-  RequestAccountsRequest,
-  RequestAccountsResponse
->;
+export type DefineGetAddressesMethod = DefineRpcMethod<GetAddressesRequest, GetAddressesResponse>;

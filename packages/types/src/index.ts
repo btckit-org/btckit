@@ -30,5 +30,3 @@ declare global {
     };
   }
 }
-
-const x = await window.btc.request('getAddresses');

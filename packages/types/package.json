@@ -1,6 +1,6 @@
 {
   "name": "@btckit/types",
-  "version": "0.0.11",
+  "version": "0.0.12",
   "description": "",
   "scripts": {
     "build": "tsup src/index.ts && npm run types",
@@ -24,5 +24,5 @@
   "publishConfig": {
     "access": "public"
   },
-  "gitHead": "d16912e75204e5246da0471cf5dc54669c67b590"
+  "gitHead": "9a1dcf4d8423fcc24b40d16bea0fcd0b32d76125"
 }

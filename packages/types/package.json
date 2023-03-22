@@ -9,7 +9,7 @@
     "prepublish": "yarn build"
   },
   "author": "btckit-org",
-  "license": "ISC",
+  "license": "MIT",
   "files": [
     "dist"
   ],

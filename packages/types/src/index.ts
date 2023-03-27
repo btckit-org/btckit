@@ -4,13 +4,17 @@ import './rpc';
 import { DefineGetInfoMethod } from './methods/get-info';
 import { DefineSignPsbtMethod } from './methods/sign-psbt';
 import { DefineGetAddressesMethod } from './methods/get-addresses';
+import { DefineSignMessageMethod } from './methods/sign-message';
 
 export * from './rpc';
 export * from './methods/get-info';
 export * from './methods/sign-psbt';
 export * from './methods/get-addresses';
 
-export type BtcKitMethodMap = DefineGetInfoMethod & DefineGetAddressesMethod & DefineSignPsbtMethod;
+export type BtcKitMethodMap = DefineGetInfoMethod &
+  DefineGetAddressesMethod &
+  DefineSignPsbtMethod &
+  DefineSignMessageMethod;
 
 export type BtcKitRequests = ValueOf<BtcKitMethodMap>['request'];
 

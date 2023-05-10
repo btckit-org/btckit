@@ -1,6 +1,6 @@
 {
   "name": "@btckit/types",
-  "version": "0.0.16",
+  "version": "0.0.18",
   "description": "",
   "scripts": {
     "build": "tsup src/index.ts && npm run types",

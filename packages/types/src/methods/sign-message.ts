@@ -1,4 +1,4 @@
-import { AllowAdditionaProperties } from 'src/utils';
+import { AllowAdditionaProperties } from '../utils';
 import { DefineRpcMethod, RpcRequest, RpcResponse } from '../rpc';
 import { PaymentTypes } from './get-addresses';
 

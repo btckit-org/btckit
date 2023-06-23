@@ -1,18 +1,19 @@
-import { AllowAdditionaProperties } from '../utils';
+import { AllowAdditionalProperties } from '../utils';
 import { DefineRpcMethod, RpcRequest, RpcResponse } from '../rpc';
 import { PaymentTypes } from './get-addresses';
 
 // Implements BIP-322
 // https://github.com/bitcoin/bips/blob/master/bip-0322.mediawiki
-type Bip322MessageTypes = 'legacy' | 'bip322';
+export type Bip322MessageTypes = 'legacy' | 'bip322';
 
-export interface SignMessageResponseParams extends AllowAdditionaProperties {
+export interface SignMessageRequestParams extends AllowAdditionalProperties {
   type?: Bip322MessageTypes;
+  account?: number;
   message: string;
   paymentType: PaymentTypes;
 }
 
-export interface SignMessageResponseBody extends AllowAdditionaProperties {
+export interface SignMessageResponseBody extends AllowAdditionalProperties {
   /**
    * Base64 encoded signature
    */
@@ -24,7 +25,7 @@ export interface SignMessageResponseBody extends AllowAdditionaProperties {
   address: string;
 }
 
-export type SignMessageRequest = RpcRequest<'signMessage', SignMessageResponseParams>;
+export type SignMessageRequest = RpcRequest<'signMessage', SignMessageRequestParams>;
 
 export type SignMessageResponse = RpcResponse<SignMessageResponseBody>;
 

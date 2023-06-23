@@ -1,18 +1,18 @@
-import { AllowAdditionaProperties } from '../utils';
+import { AllowAdditionalProperties } from '../utils';
 import { DefineRpcMethod, RpcRequest, RpcResponse } from '../rpc';
 
 export type PaymentTypes = 'p2pkh' | 'p2sh' | 'p2wpkh-p2sh' | 'p2wpkh' | 'p2tr';
 
-export interface BtcAddress extends AllowAdditionaProperties {
+export interface BtcAddress extends AllowAdditionalProperties {
   type: PaymentTypes;
   address: string;
 }
 
-export interface AddressResponseBody extends AllowAdditionaProperties {
+export interface AddressResponseBody extends AllowAdditionalProperties {
   addresses: BtcAddress[];
 }
 
-export interface Params extends AllowAdditionaProperties {
+export interface Params extends AllowAdditionalProperties {
   types: PaymentTypes[];
 }
 

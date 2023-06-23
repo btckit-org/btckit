@@ -1,6 +1,7 @@
 import { DefineRpcMethod, RpcRequest, RpcResponse } from '../rpc';
 
-export interface SendTransferResponseParams {
+export interface SendTransferRequestParams {
+  account?: number;
   address: string;
   amount: string;
 }
@@ -9,7 +10,7 @@ export interface SendTransferResponseBody {
   txid: string;
 }
 
-export type SendTransferRequest = RpcRequest<'sendTransfer', SendTransferResponseParams>;
+export type SendTransferRequest = RpcRequest<'sendTransfer', SendTransferRequestParams>;
 
 export type SendTransferResponse = RpcResponse<SendTransferResponseBody>;
 

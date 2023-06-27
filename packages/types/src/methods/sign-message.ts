@@ -10,6 +10,7 @@ export interface SignMessageRequestParams extends AllowAdditionalProperties {
   type?: Bip322MessageTypes;
   account?: number;
   message: string;
+  network?: any;
   paymentType: PaymentTypes;
 }
 

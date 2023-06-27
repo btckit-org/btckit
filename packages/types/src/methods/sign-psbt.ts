@@ -12,6 +12,7 @@ export interface SignPsbtRequestParams {
   account?: number;
   allowedSighash?: SignatureHash[];
   hex: string;
+  network?: any;
   signAtIndex?: number | number[];
 }
 

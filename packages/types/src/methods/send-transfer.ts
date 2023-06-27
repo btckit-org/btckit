@@ -4,6 +4,7 @@ export interface SendTransferRequestParams {
   account?: number;
   address: string;
   amount: string;
+  network?: any;
 }
 
 export interface SendTransferResponseBody {

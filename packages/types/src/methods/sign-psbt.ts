@@ -17,11 +17,9 @@ export enum SignatureHash {
   SINGLE_ANYONECANPAY = 0x83,
 }
 
-type SignatureHashLiteral = `${SignatureHash}`;
-
 export interface SignPsbtRequestParams {
   account?: number;
-  allowedSighash?: SignatureHash[] | SignatureHashLiteral[];
+  allowedSighash?: SignatureHash[];
   hex: string;
   signAtIndex?: number | number[];
 }

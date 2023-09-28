@@ -8,7 +8,7 @@ export interface BtcAddress extends AllowAdditionalProperties {
   address: string;
 }
 
-export interface AddressResponseBody extends AllowAdditionalProperties {
+export interface GetAddressesResponseBody extends AllowAdditionalProperties {
   addresses: BtcAddress[];
 }
 
@@ -18,6 +18,6 @@ export interface Params extends AllowAdditionalProperties {
 
 export type GetAddressesRequest = RpcRequest<'getAddresses'>;
 
-export type GetAddressesResponse = RpcResponse<AddressResponseBody>;
+export type GetAddressesResponse = RpcResponse<GetAddressesResponseBody>;
 
 export type DefineGetAddressesMethod = DefineRpcMethod<GetAddressesRequest, GetAddressesResponse>;

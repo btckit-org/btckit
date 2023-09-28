@@ -12,11 +12,11 @@ export interface GetAddressesResponseBody extends AllowAdditionalProperties {
   addresses: BtcAddress[];
 }
 
-export interface Params extends AllowAdditionalProperties {
+export interface GetAddressesParams extends AllowAdditionalProperties {
   types: PaymentTypes[];
 }
 
-export type GetAddressesRequest = RpcRequest<'getAddresses'>;
+export type GetAddressesRequest = RpcRequest<'getAddresses', GetAddressesParams>;
 
 export type GetAddressesResponse = RpcResponse<GetAddressesResponseBody>;
 

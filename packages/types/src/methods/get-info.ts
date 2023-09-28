@@ -1,6 +1,6 @@
 import { DefineRpcMethod, RpcRequest, RpcResponse } from '../rpc';
 
-interface GetInfoResponseBody {
+export interface GetInfoResponseBody {
   version: string;
   supportedMethods?: string[];
 }
